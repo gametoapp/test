@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mnc.dralarm"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+	<uses-permission android:name="android.permission.GET_TASKS" />
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.mnc.dralarm.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name="com.mnc.dralarm.CodeTypeAD"></activity>
+        <activity android:name="com.mnc.dralarm.XmlTypeAD"></activity>
+        
+       	<!-- 声明Mogo的Activity -->
+   		<activity
+       		android:name="com.mnc.dralarm.av.DralarmWebView"
+       		android:configChanges="orientation|keyboardHidden|screenSize"
+	   		android:label="@string/app_name">
+   		</activity>
+
+		<!-- 注册Service，自主广告与交换广告的应用下载功能所需 -->
+
+		<service android:name="com.mnc.dralarm.controller.service.UpdateService"
+
+				android:exported="true"
+
+				android:process=":remote" />
+
+		<!-- 注册Service，安装应用所用 -->
+
+		<service android:name="com.mnc.dralarm.controller.service.CountService"
+
+				android:exported="true"
+
+				android:process=":remote" />
+	
+		<!-- Youmi Android SDK -->
+        <activity
+            android:name="net.youmi.android.AdBrowser"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <service
+            android:name="net.youmi.android.AdService"
+            android:exported="false" >
+        </service>
+        <!-- /Youmi Android SDK -->
+
+        <!-- Tencent GDT -->
+		<service android:name="com.qq.e.comm.DownloadService" android:exported="false"></service>
+		<activity android:name="com.qq.e.ads.AdActivity"></activity>
+		<activity android:name="com.qq.e.ads.GdtBrowserActivity"></activity>
+		<activity 
+            android:name="com.qq.e.ads.InterstitialAdActivity" 
+            android:configChanges="keyboard|keyboardHidden|orientation" 
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" > 
+		</activity> 
+		
+          <!-- /Tencent GDT -->
+
+        <!-- Baidu Activity -->
+        <!-- Debug token -->
+        <meta-data
+            android:name="BaiduMobAd_DEBUG_TOKEN"
+            android:value="baidu" />
+
+        <!-- AppActivity -->
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+        <!-- /Baidu Activity -->
+		
+    </application>
+
+</manifest>

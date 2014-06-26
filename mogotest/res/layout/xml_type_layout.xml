@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:adsmogo="http://www.adsmogo.com"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000" >
+    <!-- 显示广告的Layout -->
+    <com.mnc.dralarm.av.DralarmLayout
+        android:id="@+id/adsMogoView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        adsmogo:appid="34da8f0b85924b9f806f81ad75fa9377" />
+</RelativeLayout>
